@@ -1,0 +1,16 @@
+destination_url: "https://your-siem-ip/api/ingest"
+auth_key: "your-api-key"
+
+# Track specific files or entire directories
+log_paths:
+  - "/var/log/*.log"
+  # - "C:\\inetpub\\logs\\*.log" # Windows example
+
+# Drop logs that match these regex patterns BEFORE sending
+drop_rules:
+  - "(?i)debug" 
+
+# Performance & Batching
+batch_size: 500
+flush_interval_seconds: 5
+max_mb_per_second: 10
